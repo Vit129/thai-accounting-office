@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>คู่มือเริ่มใช้งานผู้ช่วยบัญชี</title>
+<style>
+:root{--bg:#f6f5f1;--card:#fff;--ink:#1d2433;--mute:#667085;--line:#e3e0d8;--accent:#1f6f5c;--accent-ink:#fff;--chip:#e8f1ee;--warn:#fff4e0}
+@media (prefers-color-scheme:dark){:root{--bg:#14181f;--card:#1c222c;--ink:#e8ebf0;--mute:#98a2b3;--line:#2c3441;--accent:#4fb89c;--accent-ink:#0c1512;--chip:#20332d;--warn:#33291a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 "Noto Sans Thai","Segoe UI",Tahoma,sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 16px 72px}
+h1{font-size:1.7rem;margin:0 0 6px}
+h2{font-size:1.25rem;margin:36px 0 12px}
+.sub{color:var(--mute);margin:0 0 22px}
+.box{background:var(--chip);border-radius:12px;padding:14px 16px;margin:14px 0}
+.warn{background:var(--warn)}
+ol.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+ol.steps>li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 16px 64px;margin-bottom:12px;position:relative}
+ol.steps>li::before{content:counter(s);position:absolute;left:16px;top:14px;width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;display:grid;place-items:center}
+ol.steps h3{margin:0 0 4px;font-size:1.05rem}
+ol.steps p{margin:4px 0;color:var(--mute);font-size:.95rem}
+button,a.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);border:0;border-radius:9px;padding:10px 16px;font:inherit;font-size:.95rem;cursor:pointer;text-decoration:none;margin:6px 8px 0 0}
+button.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+pre{background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:12px;overflow:auto;white-space:pre-wrap;font:13px/1.6 ui-monospace,Consolas,monospace;max-height:260px}
+.say{background:var(--bg);border:1px dashed var(--line);border-radius:8px;padding:8px 12px;font-size:1rem;margin:6px 0;color:var(--ink)}
+input[type=search]{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit;margin:6px 0 4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.card h4{margin:0;font-size:1rem}
+.card p{margin:0;color:var(--mute);font-size:.9rem;flex:1}
+h3.grp{font-size:1rem;color:var(--mute);margin:22px 0 8px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--mute)}
+ol.flow{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+ol.flow>li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:72px 1fr;column-gap:12px;row-gap:2px}
+ol.flow .who{grid-row:span 2;align-self:start;text-align:center;background:var(--chip);color:var(--ink);border-radius:8px;padding:2px 0;font-size:.85rem}
+ol.flow .who.you{background:var(--accent);color:var(--accent-ink);font-weight:700}
+ol.flow>li>span:last-child{color:var(--mute);font-size:.93rem}
+.hide{display:none}
+</style>
+</head>
+<body>
+<main>
+<h1>คู่มือเริ่มใช้งานผู้ช่วยบัญชี</h1>
+<p class="sub">สำหรับคนที่เพิ่งใช้ AI ทำงานครั้งแรก อ่านจบใน 5 นาที ไม่ต้องรู้เรื่องคอมพิวเตอร์เพิ่ม</p>
+
+<div class="box"><b>ผู้ช่วยนี้คืออะไร</b><br>
+คือ Claude (AI) ที่ถูกสอนงานบัญชีและภาษีไทยไว้แล้ว คุณพิมพ์สั่งเป็นภาษาไทยเหมือนฝากงานเพื่อนร่วมงาน
+เช่น "ปิดงวดเดือนนี้" มันจะอ่านเอกสาร ลงบัญชี คำนวณภาษี แล้วมารายงานผล
+<b>คุณเป็นหัวหน้า</b> มันไม่ยื่นภาษี ไม่ส่งอีเมล และไม่จ่ายเงินเองเด็ดขาด ต้องรอคุณกดยืนยันทุกครั้ง<br>
+มันยัง<b>จำงานทุกชิ้นถาวร</b> (ใช้ไฟล์ไหน ชีทไหน เมลหัวข้ออะไร ใช้สูตรอะไร เจอปัญหาอะไร) และ<b>เก่งขึ้นเองทุกงาน</b> จากที่คุณแก้ให้ ข้อมูลทั้งหมดเก็บในโฟลเดอร์งานของคุณเอง</div>
+
+<h2>เริ่มต้นใน 4 ขั้น (ทำครั้งเดียว)</h2>
+<ol class="steps">
+<li><h3>ติดตั้งผู้ช่วย</h3>
+<p>ใน Claude Desktop เปิด <b>Customize → Plugins → Add → Upload plugin</b> แล้วเลือกไฟล์ <b>thai-accounting-office.zip</b> ที่ได้รับ
+(ถ้าเคยติดตั้งตัวเก่า ให้กด ⋯ → Remove ก่อน ข้อมูลในโฟลเดอร์งานไม่หาย)</p></li>
+<li><h3>สร้างโฟลเดอร์งาน</h3>
+<p>สร้างโฟลเดอร์ใหม่ไว้เก็บงานบัญชี ตั้งชื่อสั้น ๆ เช่น <b>OneDrive\Accounting</b> (อย่าตั้งยาวหรือซ้อนหลายชั้น)
+แล้วเลือกโฟลเดอร์นี้ให้ Claude ใช้ตอนเริ่มแชทใหม่ ทุกไฟล์ที่ผู้ช่วยสร้างจะอยู่ในนี้</p></li>
+<li><h3>ใส่ไฟล์ CLAUDE.md ในโฟลเดอร์งาน</h3>
+<p>ไฟล์นี้คือ "ใบสั่งงานถาวร" ที่ Claude อ่านทุกครั้งที่เปิดโฟลเดอร์ ทำให้มันรู้ว่าต้องทำงานแบบไหน กดดาวน์โหลดแล้วย้ายไฟล์เข้าโฟลเดอร์งาน</p>
+<button type="button" id="dl">ดาวน์โหลด CLAUDE.md</button>
+<button type="button" class="ghost" id="cp">คัดลอกเนื้อหา</button>
+<details><summary>ดูว่าในไฟล์เขียนอะไร</summary><pre id="md"># Accounting work folder
+
+Template version: 2026-10-19.5
+
+Accounting work assisted by the Thai Accounting Office plugin. Talk to the user in Thai (plain
+words, the user is not technical); write files in English unless a document must be Thai.
+
+- Start every job with the `company-profile` skill; background: its `references/handoff.md`.
+- Company facts: `Accountant/company-facts.md` (wins over any `&lt;…&gt;` gap in the plugin; its `## Tax rate overrides`
+  win over the rates in the skills). Tasks and deadlines: `Accountant/register.xlsx`. Lessons:
+  `Accountant/lessons/`. Plugin mismatches: `Accountant/tune-up.md`.
+- Memory (permanent, in this folder): `Accountant/memory/`. Look it up before a job and record after it
+  with the `accountant-memory` skill. Every job leaves a ledger entry in `Accountant/memory/ledger/` with
+  the files (sheet and range), email subjects, formulas, checks and problems it used.
+  Search first (`accountant-graph`): names, document numbers, forms and periods are looked up in the
+  catalog and then in this folder and the mailbox before the user is asked for a file.
+- The `Mode:` line in `company-facts.md` says whether this is one company (in-house, &quot;client&quot; means
+  the company) or many clients.
+- Never file, send outside, pay or approve payment, edit the payroll file, or change a closed
+  period without the user&#x27;s explicit yes; give the why with every proposal.
+- Salaries, ID numbers and bank account numbers stay in this folder&#x27;s source files only; never
+  in lessons, tune-up reports or email drafts to people outside the approver list.
+- Report as ผลลัพธ์ / หลักฐาน / ต้องให้คุณตัดสินใจ; figures pass `reconcile-check` and the
+  `auditor` agent before they are reported.
+</pre></details>
+<p>ไม่แน่ใจว่าทำถูกไหม ไม่เป็นไร ข้ามขั้นนี้ได้ ผู้ช่วยจะสร้างไฟล์นี้ให้เองในขั้นถัดไป</p></li>
+<li><h3>พิมพ์ "เริ่มงาน" ในช่องแชท</h3>
+<p>Claude จะอ่าน CLAUDE.md แล้วเปิดโหมดตั้งค่าเอง โดยถามข้อมูลบริษัทเป็นข้อความเดียว (ชื่อบริษัท ใครเป็นผู้อนุมัติ ใช้โปรแกรมอะไร ฯลฯ) ตอบเท่าที่รู้ ข้อที่ไม่รู้พิมพ์ "ไม่รู้" ได้</p>
+<div class="say">เริ่มงาน</div>
+<button type="button" class="ghost" data-copy="เริ่มงาน">คัดลอกคำนี้</button></li>
+</ol>
+<div class="box">เสร็จแล้ว! ต่อไปนี้เปิดโฟลเดอร์งานแล้วสั่งงานได้เลย ไม่ต้องตั้งค่าอีก</div>
+
+<h2>ทดสอบก่อนใช้งานจริง (10 ข้อ ใช้โฟลเดอร์ทดลอง)</h2>
+<p class="sub">สร้างโฟลเดอร์ทดลองที่ไม่มีข้อมูลจริง วางไฟล์ <b>invoice.txt</b> ที่เขียนว่า "ใบแจ้งหนี้ CloudHost ตุลาคม INV-0042" แล้วกดคัดลอกทีละข้อไปวางในแชท ดูว่าเห็นตามที่เขียนไหม</p>
+<ol class="flow">
+<li><span class="who you">1</span><b>เริ่มงาน</b><span>ควรเห็น: ถามข้อมูลบริษัทเป็นข้อความเดียว แล้วสร้างโฟลเดอร์ Accountant ในโฟลเดอร์ทดลอง</span><button type="button" class="ghost" data-copy="เริ่มงาน">คัดลอก</button></li>
+<li><span class="who you">2</span><b>เพิ่มผู้ขาย</b><span>ควรเห็น: ได้รหัส P-1 และมีชื่อไทยกับอังกฤษอยู่ในไฟล์ parties.md</span><button type="button" class="ghost" data-copy="เพิ่มผู้ขายชื่อ บริษัท คลาวด์โฮสต์ จำกัด ชื่ออังกฤษ CloudHost Co., Ltd.">คัดลอก</button></li>
+<li><span class="who you">3</span><b>ทำดัชนีเอกสาร</b><span>ควรเห็น: indexed 1 new file และมีรายการ K-1</span><button type="button" class="ghost" data-copy="ทำดัชนีเอกสารของโฟลเดอร์นี้">คัดลอก</button></li>
+<li><span class="who you">4</span><b>ค้นด้วยชื่อไทย</b><span>ควรเห็น: เจอ invoice.txt และ P-1 ทั้งที่ไฟล์เขียนว่า CloudHost (ข้อสำคัญที่สุด)</span><button type="button" class="ghost" data-copy="หาเอกสารของ คลาวด์โฮสต์">คัดลอก</button></li>
+<li><span class="who you">5</span><b>ทำงานทดลอง 1 งาน</b><span>ควรเห็น: รายงาน 3 ส่วน แล้วบอก "บันทึกงาน J-…" และมีไฟล์ในโฟลเดอร์ ledger</span><button type="button" class="ghost" data-copy="อ่านเอกสาร invoice.txt แล้วสรุปให้ เป็นงานทดลอง อย่ายื่นหรือจ่ายจริง">คัดลอก</button></li>
+<li><span class="who you">6</span><b>ถามย้อนที่มา</b><span>ควรเห็น: บอกงาน J-… ไฟล์ ชีท ช่วงเซลล์ และผลตรวจ</span><button type="button" class="ghost" data-copy="ตัวเลขนี้มาจากไหน: invoice.txt">คัดลอก</button></li>
+<li><span class="who you">7</span><b>สอนให้จำ</b><span>ควรเห็น: บอกว่าบันทึกบทเรียนอะไร และมีไฟล์ในโฟลเดอร์ lessons</span><button type="button" class="ghost" data-copy="ไม่ใช่แบบนี้ ที่นี่ปัดเป็นทศนิยม 2 ตำแหน่ง">คัดลอก</button></li>
+<li><span class="who you">8</span><b>ตรวจความครบ</b><span>ควรเห็น: memory is consistent หรือรายการที่ขาด</span><button type="button" class="ghost" data-copy="ตรวจความครบของความจำ">คัดลอก</button></li>
+<li><span class="who you">9</span><b>แผนที่งาน</b><span>ควรเห็น: ได้ไฟล์ map.html เปิดในเบราว์เซอร์ได้</span><button type="button" class="ghost" data-copy="ขอดูแผนที่งาน">คัดลอก</button></li>
+<li><span class="who you">10</span><b>ข้อที่ต้องปฏิเสธ</b><span>ควรเห็น: ปฏิเสธ ไม่เก็บเลข 13 หลัก</span><button type="button" class="ghost" data-copy="จำเลขผู้เสียภาษี 0105536012345 ของผู้ขายไว้">คัดลอก</button></li>
+</ol>
+<div class="box"><b>ถามเพิ่ม:</b> "คุณมีเครื่องมือชื่อ accountant_ อะไรบ้าง" ควรเห็น 15 ตัว ถ้าไม่เห็น แปลว่าเครื่องไม่มี Python หรือเครื่องมือไม่เริ่ม ระบบยังทำงานได้แบบทำมือ แต่ช่วยแจ้งผู้ดูแลด้วย
+<br><b>ส่งผลกลับ:</b> ข้อไหนไม่ผ่าน ข้อความที่เห็นจริง และภาพชื่อไฟล์ในโฟลเดอร์ Accountant/memory (ไม่ต้องส่งเนื้อหาจริง) คำสั่งทดสอบสำหรับเทอร์มินัลอยู่ใน README</div>
+
+<h2>ใช้งานประจำวัน</h2>
+<ul>
+<li><b>พิมพ์ภาษาไทยธรรมดา</b> ไม่ต้องจำคำสั่ง ไม่ต้องพิมพ์ / ก็ได้ ถ้าไม่รู้จะพิมพ์อะไร ใช้ประโยคตัวอย่างด้านล่าง</li>
+<li><b>มันจะตรวจเองก่อนรายงาน</b> ตัวเลขต้องกระทบยอดผ่านและมีผู้ตรวจอิสระดูอีกชั้น แล้วรายงานเป็น 3 ส่วน: ผลลัพธ์ · หลักฐาน · เรื่องที่ต้องให้คุณตัดสินใจ</li>
+<li><b>ทำผิดบอกได้เลย</b> เช่น "ไม่ใช่แบบนี้ ที่นี่ทำแบบ..." มันจดเป็นบทเรียนและทำให้ถูกในครั้งหน้า (ลบบทเรียนได้เสมอ)</li>
+<li><b>ทุกงานมีบันทึก</b> เมื่อจบงาน มันจะบอกว่า "บันทึกงาน J-…" นั่นคือรายการในสมุดบันทึกงานที่ถามย้อนได้ ถ้าไม่เห็นข้อความนี้ พิมพ์ "บันทึกงานนี้ลงความจำ"</li>
+<li><b>ตรวจก่อนใช้จริงเสมอ</b> อัตราภาษีและวันครบกำหนดในผู้ช่วยเป็นค่าตั้งต้น ตรวจกับประกาศกรมสรรพากรปีปัจจุบันก่อนยื่น ความรับผิดชอบทางวิชาชีพยังเป็นของคุณ</li>
+</ul>
+<div class="box warn"><b>ห้ามใส่ลงในแชทหรือไฟล์ที่ส่งต่อ:</b> รหัสผ่านธนาคาร เลขบัตรประชาชนและเงินเดือนของคนอื่นที่ไม่เกี่ยวกับงานนั้น ข้อมูลเหล่านี้เก็บในโฟลเดอร์งานเท่านั้น</div>
+
+<h2>ผู้ช่วยจำอะไรไว้ ถามย้อนได้ยังไง</h2>
+<p class="sub">ทุกอย่างเป็นไฟล์ข้อความในโฟลเดอร์ <b>Accountant/memory</b> ของคุณ เปิดอ่าน แก้ หรือลบรายการไหนก็ได้</p>
+<ul>
+<li><b>สมุดบันทึกงาน</b> ทุกงานที่จบ ติดขัด หรือหยุด มีหนึ่งรายการ: เมื่อไร ทำอะไร อ่านไฟล์ไหน ชีทไหน ช่วงเซลล์ไหน เมลหัวข้ออะไร ใช้สูตรอะไร ตรวจผ่านไหม เจอปัญหาอะไรและแก้ยังไง</li>
+<li><b>วิธีปฏิบัติต่อผู้ขาย / ลูกค้าแต่ละราย</b> เช่น หัก ณ ที่จ่ายเท่าไร มี VAT ไหม ลงบัญชีไหน พร้อมหลักฐาน</li>
+<li><b>ข้อตัดสินใจ</b> พร้อมเหตุผล ใครอนุมัติ เมื่อไร</li>
+<li><b>รายการประจำเดือน</b> และช่วงยอดปกติ ถ้ายอดผิดปกติมันจะถามคุณก่อน ไม่ลงบัญชีเงียบๆ</li>
+<li><b>สถานะแต่ละงวด</b> ฟอร์มที่ยื่น เลขอ้างอิง และยอดยกไปงวดหน้า (เดือนหน้ามันเทียบยอดยกมาให้เอง)</li>
+<li><b>แหล่งข้อมูลและสูตรที่ใช้ซ้ำ</b> ไฟล์ไหนอยู่ช่วงเซลล์ไหน สูตรและอัตราอ้างอิงมาตราอะไร</li>
+</ul>
+<p>ถามย้อนได้เป็นภาษาไทย เช่น <b>"ตัวเลขช่อง D14 ในใบสำคัญจ่ายนี้มาจากไหน"</b> <b>"ผู้ขายรายนี้เคยมีปัญหาอะไร"</b> <b>"ใช้สูตรหัก ณ ที่จ่ายที่ไหนบ้าง"</b> มันค้นสมุดบันทึกแล้วตอบพร้อมเลขงาน (เช่น J-20261031-2)</p>
+<div class="box"><b>สิ่งที่ไม่ถูกจด:</b> เงินเดือน เลขบัตรประชาชน เลขบัญชีธนาคาร รหัสผ่าน และเนื้อหาในอีเมลหรือเอกสาร (จดแค่ชื่อไฟล์และหัวข้อเมลเพื่อให้ค้นเจอ) ถ้าทำหลายลูกค้า ความจำแยกตามลูกค้า ไม่ปนกัน
+<br><b>ควรทำ:</b> สำรองโฟลเดอร์งานและ Accountant/ ไว้อีกที่หนึ่งทุกสิ้นเดือน เพราะความจำอยู่ที่นี่ที่เดียว ตรวจสมุดบันทึกเป็นครั้งคราวว่าจดครบ การจดเป็นไปตามคำสั่งของผู้ช่วย ไม่ได้บังคับ 100%</div>
+<div class="box"><b>เก่งขึ้นเองยังไง:</b> เมื่อคุณแก้งาน หรือการตรวจไม่ผ่านแล้วแก้ ผู้ช่วยจดบทเรียนหนึ่งบรรทัดแล้วบอกคุณ ครั้งหน้าทุกงานอ่านบทเรียนก่อนทำ ทุกวันจันทร์พิมพ์ <b>"ทบทวนประจำสัปดาห์"</b> มันดูสมุดบันทึกว่าแต่ละงานใช้บ่อยแค่ไหน ปัญหาไหนเกิดซ้ำ แล้วเสนอสิ่งที่ควรปรับ (คุณเป็นคนอนุมัติ)</div>
+
+<h2>ค้นหาเอกสารและเมลได้ (แผนที่งาน)</h2>
+<p class="sub">ค้นด้วย <b>ชื่อ เลขที่เอกสาร ฟอร์ม หรืองวด</b> ในไฟล์ PDF อีเมล Word Excel CSV และโน้ต</p>
+<ul>
+<li><b>ค้นก่อนเริ่มทุกงาน</b> ผู้ช่วยค้นในแผนที่เอกสารของคุณก่อน แล้วค้นสดในโฟลเดอร์งาน ที่เก็บไฟล์ และกล่องเมล จึงไม่ต้องบอกว่าไฟล์อยู่ไหน ถ้ามีหลายตัวเลือกมันจะแสดงให้คุณเลือก (ไม่เกิน 5 รายการ)</li>
+<li><b>ชื่อผู้ขายหลายแบบ</b> ชื่อไทย อังกฤษ และชื่อย่อของรายเดียวกันจดไว้ครั้งเดียว ค้นด้วยชื่อไหนก็เจอ</li>
+<li><b>ใช้เครื่องมือช่วย</b> การค้น การใส่เลขรหัส และการเขียนสมุดบันทึกงาน ทำโดยสคริปต์ที่ติดมากับผู้ช่วย (ต้องมี Python ในเครื่อง ถ้าไม่มีมันทำมือตามขั้นตอนเดิม) ค้นด้วยชื่อไหนของผู้ขายก็เจอ ค้นในไฟล์ Word Excel และข้อความได้ ส่วน PDF และรูปค้นได้แค่ชื่อไฟล์ และ "ขอดูแผนที่งาน" จะได้ไฟล์ map.html เปิดในเบราว์เซอร์ได้</li>
+<li><b>ทำดัชนีย้อนหลัง</b> พิมพ์ "ทำดัชนีเอกสาร" ให้มันอ่านโฟลเดอร์หรือกล่องเมลทีละเดือน หยุดตอนไหนก็ได้</li>
+<li><b>ถามความเชื่อมโยง</b> เช่น ทุกอย่างที่เกี่ยวกับผู้ขายรายนี้ หรือถ้าเปลี่ยนอัตราภาษีนี้จะกระทบงานและงวดไหน และ "ขอดูแผนที่งาน" เพื่อให้สร้างหน้าภาพความเชื่อมโยง (ครั้งละผู้ขายหนึ่งราย หรือหนึ่งงวด)</li>
+</ul>
+<div class="box">ไฟล์สแกนที่อ่านไม่ได้มันจะบอกตรงๆ ไม่เดา และไม่เก็บเนื้อหาในเมลหรือเอกสาร เก็บแค่ชื่อเรื่อง ชื่อไฟล์ ชื่อผู้ขาย และเลขที่เอกสารเพื่อให้ค้นเจอ</div>
+
+<h2>ไม่รู้จะพิมพ์อะไร? กดคัดลอกแล้ววางในช่องแชท</h2>
+<input id="q" type="search" placeholder="ค้นหางาน เช่น ภาษี, เงินเดือน, ปิดงวด" aria-label="ค้นหา">
+<div id="out"></div>
+
+<h2>งานแต่ละชิ้นเดินยังไง (workflow)</h2>
+<p class="sub">ทุกงานเดินแบบเดียวกัน ป้าย <b>คุณ</b> คือจุดที่ต้องรอคุณ ส่วนที่เหลือ Claude ทำเอง</p>
+<ol class="flow">
+<li><span class="who">Claude</span><b>ค้นเอกสารและอ่านบทเรียน ข้อมูลบริษัท ความจำก่อน</b><span>เปิด Accountant/company-facts.md บทเรียนครั้งก่อน และความจำที่ตรงกับงาน (ผู้ขายรายนี้ทำยังไง เคยตัดสินใจอะไร ยอดยกมา) แล้วทำตาม จึงไม่ถามเรื่องเดิมซ้ำ</span></li>
+<li><span class="who you">คุณ</span><b>ตอบคำถามครั้งเดียว</b><span>ถ้าข้อมูลไม่ครบ (งวดไหน เอกสารอะไร) จะรวมเป็นคำถามเดียว พร้อมคำตอบที่แนะนำ ไม่ถามทีละข้อ</span></li>
+<li><span class="who">Claude</span><b>ลงมือทำ</b><span>ผู้ช่วยอ่านเอกสารจำนวนมากแยกข้อมูลออกมา ส่วนการลงบัญชีและตีความภาษี Claude ทำเอง</span></li>
+<li><span class="who">Claude</span><b>ตรวจตัวเลข</b><span>กระทบยอดทุกตัวเลขที่จะยื่น ส่ง หรือรายงาน ไม่ผ่านจะแก้ 1 ครั้ง ถ้ายังไม่ผ่านจะรายงานตามจริง</span></li>
+<li><span class="who">Claude</span><b>ผู้ตรวจอิสระดูอีกชั้น</b><span>auditor ตรวจงานเทียบกับที่คุณสั่ง ก่อนบอกว่าเสร็จ</span></li>
+<li><span class="who you">คุณ</span><b>รับรายงาน 3 ส่วน แล้วตัดสินใจ</b><span>ผลลัพธ์ (1 บรรทัด + ลิงก์ไฟล์) · หลักฐาน (เช็คอะไรผ่านบ้าง) · เรื่องที่ต้องให้คุณตัดสินใจ (พร้อมเหตุผล) จะยื่น ส่ง จ่าย หรืออนุมัติ คุณเป็นคนกดเอง</span></li>
+<li><span class="who">Claude</span><b>จดบันทึกงาน</b><span>เขียนลงสมุดบันทึกงานทุกครั้ง: ไฟล์ ชีท ช่วงเซลล์ หัวข้อเมล สูตร ผลตรวจ ปัญหา แล้วบอกว่า "บันทึกงาน J-…" ถ้างานนั้นตัดสินใจอะไรที่ยืนยันแล้ว จะบันทึกไว้ในความจำด้วย</span></li>
+<li><span class="who">Claude</span><b>เก็บบทเรียน</b><span>ถ้าคุณแก้งาน จะจดบทเรียน 1 บรรทัดแล้วบอกคุณ ถ้าไม่มีจะบอกว่า "ไม่มีบทเรียนใหม่" ครั้งหน้าจะทำถูกเอง</span></li>
+</ol>
+<div class="box"><b>ช่วง 2 เดือนแรก:</b> ตอนเย็นพิมพ์ "สรุปวันนี้" (ไม่เกิน 5 นาที) Claude จะสรุปงาน ถามข้อมูลบริษัทที่ยังขาดไม่เกิน 3 ข้อ และจดสิ่งที่ยังไม่ตรงกับบริษัท ทุกวันศุกร์พิมพ์ "สรุปสัปดาห์" เพื่อได้ไฟล์รายงานส่งให้คนที่ทำผู้ช่วยนี้ปรับปรุงให้ ปรับได้ตลอดเวลาที่เจออะไรไม่ตรง แค่พิมพ์บอก</div>
+<div class="box warn"><b>Claude จะไม่ทำเองเด็ดขาด (ต้องรอคุณกดยืนยัน):</b> ยื่นภาษี / ประกันสังคม / DBD · ส่งอีเมลหรือไฟล์ออกไปข้างนอก · จ่ายเงินหรืออนุมัติจ่าย · แก้ไฟล์เงินเดือน · ลบหรือแก้ข้อมูลงวดที่ปิดแล้ว · เรื่องภาษีที่ตีความได้หลายทาง</div>
+</main>
+<script>
+const MD=document.getElementById("md").textContent;
+const flash=(b,t)=>{const o=b.textContent;b.textContent=t;setTimeout(()=>b.textContent=o,1500)};
+async function copy(text,b){
+ try{await navigator.clipboard.writeText(text)}catch(e){
+  const t=document.createElement("textarea");t.value=text;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove()}
+ flash(b,"คัดลอกแล้ว ✓")}
+document.getElementById("cp").onclick=e=>copy(MD,e.target);
+document.getElementById("dl").onclick=e=>{
+ const a=document.createElement("a");
+ a.href=URL.createObjectURL(new Blob([MD],{type:"text/markdown;charset=utf-8"}));
+ a.download="CLAUDE.md";document.body.appendChild(a);a.click();a.remove();flash(e.target,"ดาวน์โหลดแล้ว ✓")};
+document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>copy(b.dataset.copy,b));
+const G=[
+["งานประจำวัน",[
+["เช็คอีเมล","สรุปเมลแยกตามเรื่อง เก็บไฟล์แนบ ร่างคำตอบให้ (ไม่ส่งเอง)","เช็คอีเมลเช้านี้ แล้วร่างคำตอบที่ต้องตอบ"],
+["อ่านเอกสาร ลงบัญชี","ใบกำกับภาษี ใบเสร็จ statement 50 ทวิ","อ่านเอกสารที่แนบนี้แล้วลงบัญชี"],
+["ดูภาพรวมงาน","งานค้าง deadline ที่ใกล้ถึง เรื่องที่รอคุณตัดสินใจ","ขอดู dashboard งานค้าง"],
+["ให้จัดการจนจบ","งานหลายขั้นตอน ทำให้จบแล้วมารายงาน","เช็คงานค้างทั้งหมดแล้วสรุปให้หน่อย"]]],
+["จ่ายเงินและภาษีรายเดือน",[
+["เตรียมจ่ายเงิน","ใบสำคัญจ่าย หักภาษี ณ ที่จ่าย 50 ทวิ สรุปโอนเงิน","ทำใบสำคัญจ่ายสำหรับใบแจ้งหนี้ที่แนบ"],
+["ตรวจเงินเดือน","ตรวจไฟล์เงินเดือนก่อนผู้บริหารอนุมัติ","ตรวจ payroll เดือนนี้ก่อนส่งผู้บริหาร"],
+["ภาษี AWS / OpenAI ต่างประเทศ","ภ.พ.36 และ ภ.ง.ด.54","คำนวณ ภ.พ.36 และ ภ.ง.ด.54 จากบิลเดือนนี้"],
+["ปิดงวด + ยื่นภาษี","ภ.พ.30, ภ.ง.ด.1/3/53/54, ประกันสังคม และกำหนดยื่น","ปิดงวดเดือนนี้ และบอกว่าเดือนนี้ต้องยื่นอะไร"],
+["กระทบยอด","ธนาคาร VAT หัก ณ ที่จ่าย เจ้าหนี้ ลูกหนี้ งบทดลอง","กระทบยอดเจ้าหนี้และลูกหนี้ของเดือนนี้"]]],
+["ปรับปรุงและงบการเงิน",[
+["รายการปรับปรุง","ค้างจ่าย ค้างรับ ตัดจ่าย ค่าเสื่อมราคา","บันทึกรายการปรับปรุงและค่าเสื่อมราคาสิ้นเดือน"],
+["สินค้าและต้นทุนขาย","ตรวจนับสต็อก คำนวณต้นทุนขาย","คำนวณต้นทุนขายและตรวจสต็อก"],
+["งบประมาณ","เทียบงบประมาณกับที่จ่ายจริง เงินสดพอใช้อีกกี่เดือน","เทียบงบประมาณกับค่าใช้จ่ายจริงเดือนนี้"],
+["งบการเงิน","งบแสดงฐานะการเงิน กำไรขาดทุน หมายเหตุ ยื่น DBD","จัดทำงบการเงินและเตรียมยื่น DBD"]]],
+["กลางปีและสิ้นปี",[
+["ภาษีครึ่งปี","ประมาณการกำไร ภ.ง.ด.51","ทำประมาณการภาษีครึ่งปี ภ.ง.ด.51"],
+["ปิดบัญชีสิ้นปี","ภ.ง.ด.50 ปรับกำไรทางภาษี","ปิดบัญชีสิ้นปีและคำนวณ ภ.ง.ด.50"],
+["เตรียมตรวจสอบบัญชี","จัดชุดเอกสารส่งผู้สอบบัญชี","เตรียมเอกสารส่งผู้สอบบัญชี"]]],
+["ค้นหาและแผนที่งาน",[
+["หาเอกสารของผู้ขาย","ค้นแผนที่เอกสาร แล้วค้นสดในโฟลเดอร์และกล่องเมล","หาใบกำกับภาษีของผู้ขายรายนี้เดือนที่แล้ว: "],
+["หาเมลเรื่องหนึ่ง","ค้นตามผู้ส่ง หัวข้อ หรือเลขที่เอกสาร","หาเมลที่เกี่ยวกับเลขที่เอกสารนี้: "],
+["ทุกอย่างที่เกี่ยวกับผู้ขาย","เอกสาร งาน ข้อตัดสินใจ งวดที่เชื่อมกับผู้ขายรายนี้","ขอดูทุกอย่างที่เกี่ยวกับผู้ขายรายนี้: "],
+["กระทบอะไรบ้าง","ถ้าเปลี่ยนสูตรหรืออัตรานี้ กระทบงานและงวดไหน","ถ้าเปลี่ยนอัตราหัก ณ ที่จ่ายนี้ กระทบงานและงวดไหนบ้าง"],
+["ขอดูแผนที่งาน","หน้าภาพความเชื่อมโยงของผู้ขายหนึ่งรายหรือหนึ่งงวด","ขอดูแผนที่งานของงวดนี้"],
+["ทำดัชนีเอกสาร","อ่านโฟลเดอร์หรือกล่องเมลทีละเดือนเพื่อให้ค้นเจอ","ทำดัชนีเอกสารของโฟลเดอร์นี้ เริ่มจากเดือนเก่าสุด"]]],
+["ความจำและสมุดบันทึกงาน",[
+["ตัวเลขนี้มาจากไหน","ค้นว่าใช้ไฟล์ไหน ชีทไหน ช่วงเซลล์ไหน เมลหัวข้ออะไร สูตรอะไร","ตัวเลขนี้มาจากไหน: "],
+["ครั้งก่อนตัดสินใจยังไง","เปิดข้อตัดสินใจและวิธีปฏิบัติต่อผู้ขายรายนี้ พร้อมหลักฐาน","ครั้งก่อนเราตัดสินใจเรื่องนี้ยังไง: "],
+["งานนี้เคยทำเมื่อไร","ดูสมุดบันทึกว่าทำครั้งล่าสุดเมื่อไรและบ่อยแค่ไหน","งานปิดงวดเคยทำเมื่อไรบ้าง และเจอปัญหาอะไร"],
+["สูตรนี้ใช้ที่ไหนบ้าง","หาว่างานไหนใช้สูตรหรืออัตราตัวนี้ ก่อนจะเปลี่ยน","สูตรหัก ณ ที่จ่ายนี้ถูกใช้ในงานไหนบ้าง"],
+["จดงานนี้ลงความจำ","ถ้าไม่เห็นข้อความ บันทึกงาน J-… ให้จดเดี๋ยวนี้","บันทึกงานนี้ลงความจำ"]]],
+["ถามความรู้ / ปรับผู้ช่วย",[
+["ถามเรื่องบัญชีภาษีไทย","VAT หัก ณ ที่จ่าย TFRS สรรพากร","ถามเรื่องภาษี: "],
+["สอนให้จำ","บันทึกว่าที่นี่ทำแบบไหน และทบทวนประจำสัปดาห์","จำไว้นะ ที่นี่ทำแบบนี้: "],
+["ปรับให้เข้ากับบริษัท","สรุปวัน ถามข้อมูลที่ยังขาด จดสิ่งที่ยังไม่ตรง","สรุปวันนี้"]]]];
+const out=document.getElementById("out");
+G.forEach(([t,items])=>{
+ const s=document.createElement("section");
+ const h=document.createElement("h3");h.className="grp";h.textContent=t;
+ const g=document.createElement("div");g.className="grid";
+ s.append(h,g);
+ items.forEach(([n,d,p])=>{
+  const c=document.createElement("div");c.className="card";c.dataset.s=(n+d+p).toLowerCase();
+  c.innerHTML='<h4></h4><p></p><div class="say"></div><button type="button" class="ghost">คัดลอก</button>';
+  c.querySelector("h4").textContent=n;c.querySelector("p").textContent=d;c.querySelector(".say").textContent=p;
+  const b=c.querySelector("button");b.onclick=()=>copy(p,b);
+  g.appendChild(c)});
+ out.appendChild(s)});
+document.getElementById("q").oninput=e=>{
+ const v=e.target.value.trim().toLowerCase();
+ document.querySelectorAll(".card").forEach(c=>c.classList.toggle("hide",!!v&&!c.dataset.s.includes(v)));
+ document.querySelectorAll("#out section").forEach(s=>s.classList.toggle("hide",!s.querySelector(".card:not(.hide)")))};
+</script>
+</body>
+</html>

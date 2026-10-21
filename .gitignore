@@ -1,0 +1,7 @@
+.DS_Store
+*.plugin
+.claude/worktrees/
+dist/
+.tmp/
+__pycache__/
+.kouen-worktrees/

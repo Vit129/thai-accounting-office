@@ -1,0 +1,22 @@
+{
+  "description": "Before the assistant stops: a script blocks once when a finished accounting job has no ledger entry (fail-open without Python), and a prompt check asks for a lesson when the user corrected the work.",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -B \"${CLAUDE_PLUGIN_ROOT}/skills/accountant-graph/scripts/stop_gate.py\" || python -B \"${CLAUDE_PLUGIN_ROOT}/skills/accountant-graph/scripts/stop_gate.py\"",
+            "timeout": 15
+          },
+          {
+            "type": "prompt",
+            "prompt": "You are checking whether an accounting assistant finished its record-keeping before it stops. Hook input: $ARGUMENTS. If the input says stop_hook_active is true, approve. This plugin is installed for every project: if the input's cwd is not inside a work folder that has Accountant/ and the conversation is not an accounting job for a client (books, tax, VAT, payroll, closing, invoices), approve immediately — QA, coding or other work never blocks here. Otherwise block ONLY in these cases: (a) the assistant just finished, blocked or stopped an accounting job (it reported ผลลัพธ์ / หลักฐาน or said the job is done or cannot continue) and has not said it wrote the job ledger entry (look for 'บันทึกงาน J-'); (b) the conversation shows the user correcting the work (approach, figures, format, tone or length) or a failed check being fixed, and the assistant has not said which lesson it saved or 'ไม่มีบทเรียนใหม่'. For (a) the reason is: 'Write the job ledger entry with accountant-memory (files with sheet and range, email subjects, formulas, checks, problems), then say บันทึกงาน J-id.' For (b) the reason is: 'Run the learn-and-improve learning pass: save one verified lesson free of client or company data to the governing skill's lessons file, or say ไม่มีบทเรียนใหม่ with why.' In every other case, or if unsure, approve.",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
