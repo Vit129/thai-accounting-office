@@ -7,7 +7,7 @@ COMPANY="${1:-}"
 OUT="$ROOT/dist"; mkdir -p "$OUT"
 BUILD="$(mktemp -d)"; trap 'rm -rf "$BUILD"' EXIT
 rsync -a --exclude '/.git' --exclude '/companies' --exclude '/scripts' --exclude '/dist' \
-      --exclude '/tests' --exclude '/.tmp' --exclude '/.kouen-worktrees' --exclude '/.claude' --exclude '__pycache__' --exclude '*.html' --exclude 'CLAUDE.md' --exclude '.DS_Store' --exclude '.gitignore' "$ROOT/" "$BUILD/"
+      --exclude '/tests' --exclude '/.tmp' --exclude '/.kouen-worktrees' --exclude '/.claude' --exclude '__pycache__' --exclude '*.html' --exclude 'CLAUDE.md' --exclude '.DS_Store' --exclude '.gitignore' --exclude '/.claude-plugin/marketplace.json' "$ROOT/" "$BUILD/"
 # the handout embeds work-folder-CLAUDE.md; fail when its version drifts
 V="$(grep -m1 '^Template version' "$ROOT/skills/company-profile/references/work-folder-CLAUDE.md")"
 grep -qF "$V" "$ROOT"/*.html || { echo "error: handout html does not embed '$V'; regenerate it" >&2; exit 1; }
