@@ -31,10 +31,20 @@ Claude จะไม่ยื่นภาษี / ประกันสังค�
 
 ## การติดตั้ง
 
-### Claude Desktop
+### Claude Desktop: ผ่าน marketplace (แนะนำ)
+
+1. เปิด Claude Desktop ไปที่ **Customize → Plugins**
+2. ที่ **Personal plugins** กด **+ → Add marketplace → Add from a repository**
+3. ใส่ `https://github.com/Vit129/thai-accounting-office` แล้วติดตั้ง `thai-accounting-office` จาก marketplace นี้
+
+องค์กร: Owner ผูก repo นี้เป็น marketplace ขององค์กรได้ แล้ว plugin จะ sync ให้ทุกคน
+
+### Claude Desktop: ไฟล์ zip
 
 1. ดาวน์โหลด `thai-accounting-office.zip` จากหน้า [Release ล่าสุด](https://github.com/Vit129/thai-accounting-office/releases/latest)
 2. เปิด Claude Desktop ไปที่ **Customize → Plugins → Add → Upload plugin** แล้วเลือกไฟล์ zip
+
+ใช้ทางใดทางหนึ่งเท่านั้น ถ้าติดตั้งทั้งสองแบบ hook จะรันซ้ำสองครั้ง
 
 ### Claude Code (อัปเดตอัตโนมัติ)
 
@@ -47,7 +57,9 @@ Claude จะไม่ยื่นภาษี / ประกันสังค�
 
 ## การอัปเดต
 
-- Claude Desktop: ลบ plugin เก่าแล้วอัปโหลด zip ตัวใหม่ ข้อมูลใน `Accountant/` ไม่หาย
+- Claude Desktop (marketplace): กด Check for updates ในหน้า Plugins ถ้ายังค้างเวอร์ชันเก่า ให้ลบ marketplace → ปิดเปิดแอปใหม่ → เพิ่ม marketplace อีกครั้ง (Desktop ยังไม่มี auto-update และบางครั้งไม่ดึงเวอร์ชันใหม่)
+- Claude Desktop (zip): ลบ plugin เก่าแล้วอัปโหลด zip ตัวใหม่
+- ทุกแบบ: ข้อมูลใน `Accountant/` ไม่หาย
 - Claude Code: อัปเดตเองเมื่อเปิด auto-update
 
 ## เริ่มต้นครั้งแรก
