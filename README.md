@@ -9,6 +9,15 @@ Plugin สำหรับ Claude (Claude Desktop / Claude Code) ที่ทำ�
 2. **เก่งขึ้นเองทุกงาน** — ทุก skill อ่านบทเรียนก่อนทำ และเรียนรู้จากทุกครั้งที่คุณแก้หรือตรวจไม่ผ่าน
 3. **ข้อมูลอยู่ในโฟลเดอร์ของคุณ** — ความจำทั้งหมดอยู่ในโฟลเดอร์งาน (`Accountant/`) ไม่ถูกเขียนลงใน plugin
 
+## การติดตั้ง (Installation)
+
+### ใช้งานบน Claude Desktop:
+1. ดาวน์โหลดไฟล์ `thai-accounting-office.zip` จากหน้า [Releases v0.4.0](https://github.com/Vit129/thai-accounting-office/releases/tag/v0.4.0)
+2. เปิด **Claude Desktop** ไปที่ **Customize → Plugins → Add → Upload plugin** แล้วเลือกไฟล์ `thai-accounting-office.zip`
+3. **สร้างโฟลเดอร์งาน:** สร้างโฟลเดอร์สำหรับเอกสารบัญชี เช่น `Accounting/` (แนะนำพาธสั้น ๆ บน Google Drive หรือ OneDrive)
+4. คัดลอกไฟล์ [`CLAUDE.md`](./CLAUDE.md) ไปวางไว้ในโฟลเดอร์งาน
+5. เปิดแชทในโฟลเดอร์งาน แล้วพิมพ์ **`เริ่มงาน`** เพื่อเริ่มต้นตั้งค่าข้อมูลบริษัทครั้งแรก
+
 ## ใช้ยังไง (พิมพ์ภาษาไทยได้เลย)
 
 | พิมพ์ประมาณนี้ | Claude จะ |
