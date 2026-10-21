@@ -1,78 +1,74 @@
-English | [ภาษาไทย](README.th.md)
-
 # Thai Accounting Office
 
-A plugin for Claude (Claude Desktop / Claude Code) that acts as the "chief of staff" of an accounting office:
-**you are the boss who gives orders and makes decisions.** Claude reads email and documents, posts entries in
-Excel / Google Sheets, closes periods, prepares taxes, checks every number before it goes out, and then reports back.
-Three things make it better over time:
+Plugin สำหรับ Claude (Claude Desktop / Claude Code) ที่ทำหน้าที่เสมือน "หัวหน้าฝ่ายประสานงาน" ของสำนักงานบัญชี:
+**คุณเป็นหัวหน้าที่สั่งงานและตัดสินใจ** Claude อ่านอีเมลและเอกสาร ลงบัญชีใน Excel / Google Sheets
+ปิดงวด เตรียมภาษี ตรวจตัวเลขก่อนส่งทุกครั้ง แล้วมารายงาน และมีสามอย่างที่ทำให้มันดีขึ้นเรื่อยๆ:
 
-1. **Permanent memory.** Every finished or blocked job is written to a job ledger: which file, sheet and cell range,
-   which email subject, which formula, which checks passed, which problems came up. You can ask later "where does this number come from?".
-2. **It gets better with every job.** Every skill reads its lessons before it works and learns each time you correct it or a check fails.
-3. **Your data stays in your folder.** All memory lives in your work folder (`Accountant/`), never inside the plugin.
+1. **จำถาวร** ทุกงานที่เสร็จหรือติดปัญหาจะถูกจดลงสมุดบันทึกงาน: ไฟล์ไหน ชีทไหน ช่วงเซลล์ไหน เมลหัวข้ออะไร
+   สูตรอะไร ตรวจอะไรผ่านบ้าง เจอปัญหาอะไร ถามย้อนได้ภายหลัง ("ตัวเลขนี้มาจากไหน")
+2. **เก่งขึ้นเองทุกงาน** ทุก skill อ่านบทเรียนก่อนทำ และเรียนรู้ทุกครั้งที่คุณแก้หรือตรวจไม่ผ่าน
+3. **ข้อมูลอยู่ในโฟลเดอร์ของคุณ** ความจำทั้งหมดอยู่ในโฟลเดอร์งาน (`Accountant/`) ไม่ถูกเขียนลงใน plugin
 
-You write in Thai. Skills are written in English with Thai trigger phrases.
+พิมพ์เป็นภาษาไทยได้เลย (skill เขียนเป็นภาษาอังกฤษ มีคำกระตุ้นภาษาไทย)
 
-## Key capabilities
+## ความสามารถหลัก
 
-- Inbox triage by client, saving attachments, drafting replies (never sends): `inbox-triage`
-- Reading tax invoices, receipts, bank statements and 50 ทวิ, and posting them to the workbook: `document-intake`
-- Payment voucher preparation (never pays): `payment-prep`
-- Month-end close, VAT and withholding tax, adjusting entries, depreciation, inventory and COGS: `monthly-close`, `adjusting-entries`, `inventory-cogs`
-- Foreign SaaS / cloud tax (ภ.พ.36, ภ.ง.ด.54), payroll checks: `foreign-saas-tax`, `payroll-check`
-- Half-year tax (ภ.ง.ด.51) and year-end close (ภ.ง.ด.50): `half-year-tax`, `year-end-close`
-- Financial statements (TFRS for NPAEs, DBD), audit pack, budget tracking: `financial-statements`, `audit-readiness`, `budget-tracking`
-- Reconciliation of trial balance, bank, VAT, WHT, assets, and broken Excel formulas: `reconcile-check`
-- Search and map over your own PDFs, emails, Word, Excel and CSV; trace a number to its source: `accountant-graph`, `accountant-memory`
-- Dashboard of all clients, deadlines and decisions waiting for you: `accountant-dashboard`
-- Weekly review and lessons: `learn-and-improve`; first-time setup and fine-tuning: `company-profile`, `company-tune-up`
-- An independent `auditor` agent checks each result against your instruction before it is reported.
+- คัดอีเมลตามลูกค้า เก็บไฟล์แนบ ร่างคำตอบ (ไม่ส่งเอง): `inbox-triage`
+- อ่านใบกำกับภาษี ใบเสร็จ bank statement 50 ทวิ แล้วลงสมุดงาน: `document-intake`
+- เตรียมใบสำคัญจ่าย (ไม่จ่ายเอง): `payment-prep`
+- ปิดงวด VAT หัก ณ ที่จ่าย รายการปรับปรุง ค่าเสื่อมราคา สต็อกและต้นทุนขาย: `monthly-close`, `adjusting-entries`, `inventory-cogs`
+- ภาษี SaaS/cloud ต่างประเทศ (ภ.พ.36, ภ.ง.ด.54) และตรวจเงินเดือน: `foreign-saas-tax`, `payroll-check`
+- ภาษีครึ่งปี (ภ.ง.ด.51) และปิดบัญชีสิ้นปี (ภ.ง.ด.50): `half-year-tax`, `year-end-close`
+- งบการเงิน (TFRS for NPAEs, DBD) ชุดเอกสารผู้สอบบัญชี ติดตามงบประมาณ: `financial-statements`, `audit-readiness`, `budget-tracking`
+- กระทบยอดงบทดลอง ธนาคาร VAT WHT ทรัพย์สิน และหาสูตร Excel ที่พัง: `reconcile-check`
+- ค้นหาและแผนที่งานจาก PDF อีเมล Word Excel CSV ของคุณเอง สืบย้อนตัวเลขถึงต้นทาง: `accountant-graph`, `accountant-memory`
+- Dashboard ทุกลูกค้า deadline และเรื่องที่รอคุณตัดสินใจ: `accountant-dashboard`
+- ทบทวนประจำสัปดาห์และบทเรียน: `learn-and-improve` ตั้งค่าครั้งแรกและปรับแต่ง: `company-profile`, `company-tune-up`
+- `auditor` ผู้ตรวจอิสระตรวจผลเทียบกับคำสั่งก่อนรายงานทุกครั้ง
 
-Claude never files taxes / social security / DBD, sends email or files, pays money, or edits closed periods
-without your explicit confirmation. Salaries, national ID numbers, bank account numbers and passwords are never stored in memory or lessons.
+Claude จะไม่ยื่นภาษี / ประกันสังคม / DBD ส่งอีเมลหรือไฟล์ จ่ายเงิน หรือแก้งวดที่ปิดแล้ว โดยไม่มีการยืนยันจากคุณ
+เงินเดือน เลขบัตรประชาชน เลขบัญชีธนาคาร และรหัสผ่าน ไม่ถูกบันทึกลงความจำหรือบทเรียนเด็ดขาด
 
-## Install
+## การติดตั้ง
 
 ### Claude Desktop
 
-1. Download `thai-accounting-office.zip` from the [latest release](https://github.com/Vit129/thai-accounting-office/releases/latest).
-2. In Claude Desktop go to **Customize → Plugins → Add → Upload plugin** and choose the zip.
+1. ดาวน์โหลด `thai-accounting-office.zip` จากหน้า [Release ล่าสุด](https://github.com/Vit129/thai-accounting-office/releases/latest)
+2. เปิด Claude Desktop ไปที่ **Customize → Plugins → Add → Upload plugin** แล้วเลือกไฟล์ zip
 
-### Claude Code (auto-updating)
+### Claude Code (อัปเดตอัตโนมัติ)
 
 ```
 /plugin marketplace add Vit129/thai-accounting-office
 /plugin install thai-accounting-office@thai-accounting-office
 ```
 
-Then turn on auto-update for this marketplace in `/plugin` → Marketplaces. If you previously uploaded the zip, remove that copy first, otherwise the hooks run twice.
+จากนั้นเปิด auto-update ของ marketplace นี้ในเมนู `/plugin` → Marketplaces ถ้าเคยอัปโหลดไฟล์ zip ไว้ ให้ถอดตัวนั้นออกก่อน ไม่อย่างนั้น hook จะรันซ้ำสองครั้ง
 
-## Update
+## การอัปเดต
 
-- Claude Desktop: remove the old plugin and upload the new zip. Your data in `Accountant/` is kept.
-- Claude Code: automatic when auto-update is on.
+- Claude Desktop: ลบ plugin เก่าแล้วอัปโหลด zip ตัวใหม่ ข้อมูลใน `Accountant/` ไม่หาย
+- Claude Code: อัปเดตเองเมื่อเปิด auto-update
 
-## First run
+## เริ่มต้นครั้งแรก
 
-1. Create a work folder for your accounting files (a short path on Google Drive or OneDrive works well).
-2. Copy [`skills/company-profile/references/work-folder-CLAUDE.md`](skills/company-profile/references/work-folder-CLAUDE.md) into it and rename the copy to `CLAUDE.md`. (The repo-root `CLAUDE.md` is maintainer notes, not this file.)
-3. Open a chat in the work folder and type **`เริ่มงาน`**. Claude asks for the company details in one message and creates the `Accountant/` folder.
+1. สร้างโฟลเดอร์งานสำหรับเอกสารบัญชี (แนะนำพาธสั้นๆ บน Google Drive หรือ OneDrive)
+2. คัดลอก [`skills/company-profile/references/work-folder-CLAUDE.md`](skills/company-profile/references/work-folder-CLAUDE.md) ไปวางในโฟลเดอร์งาน แล้วเปลี่ยนชื่อเป็น `CLAUDE.md` (`CLAUDE.md` ที่ root ของ repo เป็นโน้ตสำหรับคนดูแล plugin ไม่ใช่ไฟล์นี้)
+3. เปิดแชทในโฟลเดอร์งาน แล้วพิมพ์ **`เริ่มงาน`** Claude จะถามข้อมูลบริษัทเป็นข้อความเดียว แล้วสร้างโฟลเดอร์ `Accountant/`
 
-## Data & privacy
+## ข้อมูลและความเป็นส่วนตัว
 
-Memory, lessons, the job ledger and the document map are plain text files in your work folder under `Accountant/`.
-You can read, edit or delete them. Nothing is written into the plugin, and no client data belongs in this repository.
-Tax rates and deadlines in the skills are defaults: check the current Revenue Department announcements before filing.
-Claude prepares the work; professional responsibility stays with the bookkeeper and the auditor.
+ความจำ บทเรียน สมุดบันทึกงาน และแผนที่เอกสาร เป็นไฟล์ข้อความธรรมดาในโฟลเดอร์งานภายใต้ `Accountant/` เปิดอ่าน แก้ หรือลบเองได้
+ไม่มีอะไรถูกเขียนลงใน plugin และห้ามนำข้อมูลลูกค้าใส่ใน repo นี้
+ตัวเลขภาษีและกำหนดยื่นใน skill เป็นค่าตั้งต้น ตรวจประกาศกรมสรรพากรปีปัจจุบันก่อนยื่นจริงเสมอ
+Claude ช่วยเตรียมงาน ความรับผิดชอบทางวิชาชีพยังเป็นของผู้ทำบัญชีและผู้สอบบัญชี
 
-## Documentation
+## เอกสาร
 
-- [README.th.md](README.th.md): this page in Thai
-- [docs/user-guide.th.md](docs/user-guide.th.md): the full user manual (Thai)
-- [CONTRIBUTING.md](CONTRIBUTING.md): building and maintaining the plugin
+- [docs/user-guide.th.md](docs/user-guide.th.md): คู่มือการใช้งานฉบับเต็ม (ภาษาไทย)
+- [CONTRIBUTING.md](CONTRIBUTING.md): การสร้างและดูแล plugin (ภาษาอังกฤษ)
 - [CHANGELOG.md](CHANGELOG.md)
 
-## License
+## สัญญาอนุญาต
 
-Apache License 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+Apache License 2.0 ดู [LICENSE](LICENSE) และ [NOTICE](NOTICE)
