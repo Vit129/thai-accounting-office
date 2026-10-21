@@ -29,3 +29,4 @@ All notable changes to **thai-accounting-office** are documented here. The forma
   - `auditor`: Independent verification agent checking numbers and rules before handoff.
 - **Licensing & Governance:**
   - Licensed under Apache License 2.0 with explicit attribution in `NOTICE`.
+  - Co-developed and contributed by **Vit129** and **Claude** (Anthropic).
