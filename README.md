@@ -36,7 +36,7 @@ without your explicit confirmation. Salaries, national ID numbers, bank account 
 
 ### Claude Desktop
 
-1. Download `thai-accounting-office.zip` from the [v0.4.0 release](https://github.com/Vit129/thai-accounting-office/releases/tag/v0.4.0).
+1. Download `thai-accounting-office.zip` from the [latest release](https://github.com/Vit129/thai-accounting-office/releases/latest).
 2. In Claude Desktop go to **Customize → Plugins → Add → Upload plugin** and choose the zip.
 
 ### Claude Code (auto-updating)

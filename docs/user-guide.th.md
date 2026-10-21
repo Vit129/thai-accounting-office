@@ -12,10 +12,10 @@ Plugin สำหรับ Claude (Claude Desktop / Claude Code) ที่ทำ�
 ## การติดตั้ง (Installation)
 
 ### ใช้งานบน Claude Desktop:
-1. ดาวน์โหลดไฟล์ `thai-accounting-office.zip` จากหน้า [Releases v0.4.0](https://github.com/Vit129/thai-accounting-office/releases/tag/v0.4.0)
+1. ดาวน์โหลดไฟล์ `thai-accounting-office.zip` จากหน้า [Releases ล่าสุด](https://github.com/Vit129/thai-accounting-office/releases/latest)
 2. เปิด **Claude Desktop** ไปที่ **Customize → Plugins → Add → Upload plugin** แล้วเลือกไฟล์ `thai-accounting-office.zip`
 3. **สร้างโฟลเดอร์งาน:** สร้างโฟลเดอร์สำหรับเอกสารบัญชี เช่น `Accounting/` (แนะนำพาธสั้น ๆ บน Google Drive หรือ OneDrive)
-4. คัดลอกไฟล์ [`work-folder-CLAUDE.md`](./skills/company-profile/references/work-folder-CLAUDE.md) ไปวางไว้ในโฟลเดอร์งาน แล้วเปลี่ยนชื่อเป็น `CLAUDE.md` (`CLAUDE.md` ที่ root ของ repo เป็นโน้ตสำหรับคนดูแล plugin ไม่ใช่ไฟล์นี้)
+4. คัดลอกไฟล์ [`work-folder-CLAUDE.md`](../skills/company-profile/references/work-folder-CLAUDE.md) ไปวางไว้ในโฟลเดอร์งาน แล้วเปลี่ยนชื่อเป็น `CLAUDE.md` (`CLAUDE.md` ที่ root ของ repo เป็นโน้ตสำหรับคนดูแล plugin ไม่ใช่ไฟล์นี้)
 5. เปิดแชทในโฟลเดอร์งาน แล้วพิมพ์ **`เริ่มงาน`** เพื่อเริ่มต้นตั้งค่าข้อมูลบริษัทครั้งแรก
 
 ### ใช้งานบน Claude Code (อัปเดตอัตโนมัติ):

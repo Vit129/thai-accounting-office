@@ -35,7 +35,7 @@ Claude จะไม่ยื่นภาษี / ประกันสังค�
 
 ### Claude Desktop
 
-1. ดาวน์โหลด `thai-accounting-office.zip` จากหน้า [Release v0.4.0](https://github.com/Vit129/thai-accounting-office/releases/tag/v0.4.0)
+1. ดาวน์โหลด `thai-accounting-office.zip` จากหน้า [Release ล่าสุด](https://github.com/Vit129/thai-accounting-office/releases/latest)
 2. เปิด Claude Desktop ไปที่ **Customize → Plugins → Add → Upload plugin** แล้วเลือกไฟล์ zip
 
 ### Claude Code (อัปเดตอัตโนมัติ)
