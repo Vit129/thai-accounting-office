@@ -6,6 +6,7 @@ All notable changes to **thai-accounting-office** are documented here. The forma
 
 ### Added
 - How to customize the plugin for one company without editing it: work-folder lessons and `CLAUDE.md` first, personal skills (renamed copies) for bigger changes. In `README.md`, `docs/user-guide.th.md` and the company handoff. Company-side customizations never go back into this repo.
+- `.gitignore` rules and `tests/test_no_company_data.py`: work-folder files (`Accountant/`, `company-facts.md`, `tune-up*.md`, registers) and real company layers under `companies/` fail the tests, so `build.sh` refuses to package them.
 
 ## [0.4.0] - 2026-10-21
 

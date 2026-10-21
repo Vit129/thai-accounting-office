@@ -5,3 +5,12 @@ dist/
 .tmp/
 __pycache__/
 .kouen-worktrees/
+
+# company data never lives here (NDA); tests/test_no_company_data.py enforces it
+Accountant/
+company-facts.md
+tune-up*.md
+register.xlsx
+client-register.xlsx
+companies/*
+!companies/_template/
