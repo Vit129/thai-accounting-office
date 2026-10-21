@@ -1,0 +1,18 @@
+{
+  "name": "thai-accounting-office",
+  "owner": {
+    "name": "Vit129",
+    "url": "https://github.com/Vit129"
+  },
+  "metadata": {
+    "description": "Thai accounting office plugin: books, monthly close, tax filings, reconciliation and an auditor"
+  },
+  "plugins": [
+    {
+      "name": "thai-accounting-office",
+      "description": "AI chief of staff for a Thai accounting office: reads email and documents, keeps client books in Excel or Google Sheets, runs monthly close and tax filings with reconciliation checks, an auditor, a live dashboard, and skills that learn from every correction.",
+      "source": "./",
+      "license": "Apache-2.0"
+    }
+  ]
+}

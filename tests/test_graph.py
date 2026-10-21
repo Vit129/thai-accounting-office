@@ -407,6 +407,15 @@ class TestPlugin(unittest.TestCase):
             self.assertIn("-progress.md", text, skill)
             self.assertIn("Status: open", text, skill)
 
+    def test_marketplace_lists_this_plugin_and_stays_out_of_the_build(self):
+        market = json.loads(read(os.path.join(REPO, ".claude-plugin", "marketplace.json")))
+        plugin = json.loads(read(os.path.join(REPO, ".claude-plugin", "plugin.json")))
+        entry = [p for p in market["plugins"] if p["name"] == plugin["name"]]
+        self.assertEqual(len(entry), 1)
+        self.assertEqual(entry[0]["source"], "./")
+        self.assertNotIn("version", entry[0])  # plugin.json is the one version to bump
+        self.assertIn("/.claude-plugin/marketplace.json", read(os.path.join(REPO, "scripts", "build.sh")))
+
     def test_hook_and_server_paths_resolve(self):
         hooks = json.loads(read(os.path.join(REPO, "hooks", "hooks.json")))
         cmds = [h for e in hooks["hooks"]["Stop"] for h in e["hooks"]]
