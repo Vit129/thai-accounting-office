@@ -1,6 +1,6 @@
 {
   "name": "thai-accounting-office",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "license": "Apache-2.0",
   "description": "AI chief of staff for a Thai accounting office: reads email and documents, keeps client books in Excel or Google Sheets, runs monthly close and tax filings with reconciliation checks, an auditor, a live dashboard, and skills that learn from every correction.",
   "author": {

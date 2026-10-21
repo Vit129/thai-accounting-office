@@ -49,6 +49,16 @@ Anything that needs a skill changed or added → a line in `Accountant/tune-up.m
 The user installs a new version by removing the old plugin (Customize → Plugins → ⋯ → Remove)
 and uploading the new `.zip`; the work folder is untouched.
 
+Customizing without touching the plugin: never edit the installed plugin (an update overwrites it).
+A small change in how a job is done → a lesson in `Accountant/lessons/<skill>.md` or a rule in the
+work-folder `CLAUDE.md`; the original skill keeps getting updates. A new job, or a skill whose
+procedure changes almost entirely → a personal skill (Customize → Skills) copied from the original
+`SKILL.md`, under a new name and description (e.g. `my-monthly-close`), with a line in the work-folder
+`CLAUDE.md` saying it replaces the original; keep its `## Learn and remember (every job)` block. A copy
+gets no updates: after each plugin update, compare the original's `version` and port its changes.
+These company-side customizations stay with the company and never go back into the plugin repo;
+only a generic gap, written in `tune-up-week-<n>.md` without company data, reaches the maintainer.
+
 ## Open on day one
 Approver for payroll/payments/filings · accounting service contact and payroll date · external
 auditor and year-end · email/spreadsheet/accounting software · banks · fiscal year · chart of

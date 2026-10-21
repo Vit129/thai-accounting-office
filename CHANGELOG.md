@@ -2,6 +2,11 @@
 
 All notable changes to **thai-accounting-office** are documented here. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and it follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2026-10-21
+
+### Added
+- How to customize the plugin for one company without editing it: work-folder lessons and `CLAUDE.md` first, personal skills (renamed copies) for bigger changes. In `README.md`, `docs/user-guide.th.md` and the company handoff. Company-side customizations never go back into this repo.
+
 ## [0.4.0] - 2026-10-21
 
 ### Added
