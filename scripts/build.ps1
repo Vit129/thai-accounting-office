@@ -12,7 +12,7 @@ New-Item -ItemType Directory -Force -Path $Build | Out-Null
 
 try {
   # Base: everything except dev-only folders/files
-  $skip = @(".git", "companies", "scripts", "tests", ".tmp", ".kouen-worktrees", ".claude", "dist", "CLAUDE.md", ".gitignore", ".gitattributes", ".DS_Store")
+  $skip = @(".git", "companies", "scripts", "tests", ".github", ".tmp", ".kouen-worktrees", ".claude", "dist", "CLAUDE.md", ".gitignore", ".gitattributes", ".DS_Store")
   Get-ChildItem -Force -Path $Root | Where-Object { $skip -notcontains $_.Name } |
     ForEach-Object { Copy-Item -Recurse -Force -Path $_.FullName -Destination $Build }
 
