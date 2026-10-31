@@ -1,0 +1,33 @@
+DESIGN.md
+  s_53ad839a68fb1c::t_42822cd7b14b72 1-17
+PRODUCT.md
+  s_53ad839a68fb1c::t_42822cd7b14b72 1-15
+CONTEXT.md
+  s_53ad839a68fb1c::t_42822cd7b14b72 1-7
+CONTRIBUTING.md
+  s_53ad839a68fb1c::t_42822cd7b14b72 5,12-14
+.gitignore
+  s_53ad839a68fb1c::t_42822cd7b14b72 9-20
+.github/workflows/tests.yml
+  s_53ad839a68fb1c::t_42822cd7b14b72 15
+ARCHITECTURE.md
+  s_53ad839a68fb1c::t_42822cd7b14b72 1-19
+Makefile
+  s_53ad839a68fb1c::t_42822cd7b14b72 1-3,7-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.3",
+  "base_commit_sha": "5741fb2e36e7d48162c1b4ab788751b6d777d969",
+  "prompts": {},
+  "sessions": {
+    "s_53ad839a68fb1c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a18fb7-5316-7db2-acef-76f7f2031027",
+        "model": "gpt-6-luna"
+      },
+      "human_author": "Vit129 <Vit129@users.noreply.github.com>"
+    }
+  }
+}
