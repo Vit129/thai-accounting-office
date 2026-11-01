@@ -21,7 +21,7 @@ import sys
 import unicodedata
 import zipfile
 
-VERSION = "1.0.0"
+VERSION = "0.5.0"
 
 CATALOG_HEADER = ["id", "kind", "where", "title", "period", "parties", "numbers", "topics", "first_seen"]
 LINKS_HEADER = ["from", "relation", "to", "via"]
