@@ -1,0 +1,14 @@
+.gitignore
+  h_c47042854e26db 18-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.3",
+  "base_commit_sha": "60ac1903b2eac9d5fb1fddbab72aa49af843f8fc",
+  "prompts": {},
+  "humans": {
+    "h_c47042854e26db": {
+      "author": "Vit129 <Vit129@users.noreply.github.com>"
+    }
+  }
+}
